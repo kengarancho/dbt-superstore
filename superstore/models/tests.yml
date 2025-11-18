@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: bronze_orders
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+          - unique
+
+  - name: silver_orders
+    columns:
+      - name: ORDER_DATE
+        tests:
+          - not_null
+      - name: SALES
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+  - name: gold_sales_summary
+    columns:
+      - name: TOTAL_SALES
+        tests:
+          - not_null
