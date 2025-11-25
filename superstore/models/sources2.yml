@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Staging table for customers data"
+    columns:
+      - name: CUSTOMER_ID
+        description: "Unique identifier for each customer"
+      - name: CUSTOMER_NAME
+        description: "Name of the customer"
+        columns:
+      - name: CUSTOMER_EMAIL
+        description: "Email address of the customer"
+        

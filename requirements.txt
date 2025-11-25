@@ -1,0 +1,10 @@
+dbt-core>=1.6.0
+# For snapshots, incremental, and advanced materializations
+# Add your adapter, e.g. dbt-postgres, dbt-snowflake, dbt-bigquery, etc.
+dbt-snowflake>=1.6.0
+# Utilities and macros
+dbt-utils>=1.0.0
+# For testing and documentation
+pytest>=7.0.0
+# Optional: for YAML validation and linting
+yamllint>=1.26.0

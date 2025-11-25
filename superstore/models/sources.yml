@@ -1,12 +1,17 @@
 version: 2
 
 sources:
-  - name: bronze
+  - name: stg
     database: SUPERSTORE_DB
-    schema: BRONZE
+    schema: STAGING
     tables:
       - name: orders_raw
         freshness:
           warn_after: {count: 24, period: hour}
           error_after: {count: 48, period: hour}
         loaded_at_field: ORDER_DATE
+      - name: customers_raw
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        loaded_at_field: UPDATED_AT

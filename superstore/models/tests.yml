@@ -1,26 +1,48 @@
 version: 2
 
 models:
-  - name: bronze_orders
+  - name: stg_orders
     columns:
-      - name: ORDER_ID
+      - name: order_id
         tests:
           - not_null
           - unique
 
-  - name: silver_orders
+  - name: int_orders
     columns:
-      - name: ORDER_DATE
+      - name: order_date
         tests:
           - not_null
-      - name: SALES
+      - name: sales
         tests:
           - not_null
           - dbt_utils.accepted_range:
               min_value: 0
 
-  - name: gold_sales_summary
+  - name: core_orders_scd
     columns:
-      - name: TOTAL_SALES
+      - name: order_id
         tests:
           - not_null
+          - unique
+
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+
+  - name: int_customers
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+
+  - name: core_customers_scd
+    columns:
+      - name: customer_sk
+        tests:
+          - not_null
+          - unique
